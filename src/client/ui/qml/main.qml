@@ -19,7 +19,7 @@ Window {
         anchors.left: root.bottomLeft
         anchors.leftMargin: 5
 
-        text: qsTr("Step: ")+_gameBoard.internalSteps
+        text: qsTr(" Step: ")+_gameBoard.internalSteps
     }
 
 }

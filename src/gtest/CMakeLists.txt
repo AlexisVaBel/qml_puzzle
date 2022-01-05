@@ -1,0 +1,14 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 3.5)
+
+PROJECT(gtests)
+
+set (UT_ROOT_DIRECTORY ${PROJECT_SOURCE_DIR})
+
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake)
+
+include(AddGMock)
+add_gmock()
+
+set (UT_DIRECTORY ${UT_ROOT_DIRECTORY}/unit_tests)
+
+add_subdirectory(unit_tests UT_DIRECTORY)

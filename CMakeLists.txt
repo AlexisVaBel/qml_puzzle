@@ -5,7 +5,7 @@ project(Tiles_study CXX)
 include(cmake/StandardProjectSettings.cmake)
 include(cmake/PreventInSourceBuilds.cmake)
 
-add_library(project_options INTERFACE)
+add_library(project_options INTERFACE src/gtest/unit_tests/headers/maintest.h src/gtest/unit_tests/src/main.cpp src/gtest/unit_tests/src/maintest.cpp)
 target_compile_features(project_options INTERFACE cxx_std_20)
 
 if(CMAKE_CXX_COMPILER_ID MATCHES ".*Clang")
@@ -47,11 +47,6 @@ set(CONAN_EXTRA_OPTIONS "")
 include(cmake/Conan.cmake)
 run_conan()
 
-if(ENABLE_TESTING)
-  enable_testing()
-  message("Building Tests. Be sure to check out test/constexpr_tests for constexpr testing")
-  add_subdirectory(test)
-endif()
 
 set(QT_COMPONENTS Core Quick Gui Widgets Network Test LinguistTools Sql Multimedia MultimediaWidgets  Qml Quick  )
 find_package(Qt5 COMPONENTS ${QT_COMPONENTS} REQUIRED)

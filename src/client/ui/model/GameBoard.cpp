@@ -47,13 +47,13 @@ bool is_adjacent(GameBoard::Position first, GameBoard::Position second) {
 
 	bool result{false};
 
-	if (first.first == second.first) {
-		int distance = calc_distance(first.second, second.second);
+	if (first.row == second.row) {
+		int distance = calc_distance(first.column, second.column);
 		if (distance == 1) {
 			result = true;
 		}
-	} else if (first.second == second.second) {
-		int distance = calc_distance(first.first, second.first);
+	} else if (first.column == second.column) {
+		int distance = calc_distance(first.row, second.row);
 		if (distance == 1) {
 			result = true;
 		}
@@ -86,7 +86,7 @@ bool GameBoard::move(int index) {
 GameBoard::Position GameBoard::getRowCol(size_t index) const {
 	size_t row = index / _boardDimension;
 	size_t col = index % scBoardDimension;
-	return std::make_pair(row, col);
+	return {row, col};
 }
 
 bool GameBoard::_isBoardValid() {

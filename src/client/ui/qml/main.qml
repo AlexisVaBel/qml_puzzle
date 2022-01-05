@@ -12,7 +12,14 @@ Window {
     GameBoard{
     id: _gameBoard
            anchors.fill: parent
-           anchors.margins: 5
+           anchors.margins: 30
+    }
+    Text {
+        id: name
+        anchors.left: root.bottomLeft
+        anchors.leftMargin: 5
+
+        text: qsTr("Step: ")+_gameBoard.internalSteps
     }
 
 }

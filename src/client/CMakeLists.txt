@@ -2,7 +2,7 @@ set(SOURCES)
 set(HEADERS)
 set(UIS)
 
-set(CLIENT_MODULES ui ui/model)
+set(CLIENT_MODULES ui ui/model ui/controller)
 
 foreach (X ${CLIENT_MODULES})
     file(GLOB ${X}_SOURCES "${X}/*.cpp")

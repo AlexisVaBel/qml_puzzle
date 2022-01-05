@@ -3,11 +3,12 @@
 
 #include "spdlog/sinks/stdout_sinks.h"
 #include <spdlog/spdlog.h>
+#include <ui/controller/GameController.h>
 
 #include "ui/model/GameBoard.h"
 
 static constexpr auto USAGE =
-		R"(QML NODES.
+		R"(QML TILES.
 
     Usage:
           TODO - prepare usage
@@ -28,11 +29,15 @@ int main(int argc, char** argv) {
 
 	QApplication app(argc, argv);
 
-	SPDLOG_INFO("initiated qml engine");
-	model::GameBoard board;
+	SPDLOG_INFO("registered board");
 
+	model::GameBoard board;
 	qmlRegisterType<model::GameBoard>("Game", 1, 0, "GameBoardModel");
 
+	ui::controller::GameController gameController;
+	qmlRegisterType<ui::controller::GameController>("GameController", 1, 0, "GameController");
+
+	SPDLOG_INFO("initiated qml engine");
 	QQmlApplicationEngine engine;
 
 	engine.load(QUrl(QStringLiteral("qrc:/ui/qml/main.qml")));

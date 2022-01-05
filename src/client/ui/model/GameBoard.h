@@ -1,5 +1,6 @@
 #pragma once
 #include <QAbstractListModel>
+
 #include <QSize>
 #include <vector>
 
@@ -40,7 +41,15 @@ public:
 	}
 
 	Q_INVOKABLE bool move(int index);
-	using Position = std::pair<size_t, size_t>;
+	struct Positions {
+		size_t row;
+		size_t column;
+		bool operator==(const Positions other) {
+			return (row == other.row && column == other.column);
+		}
+	};
+
+	using Position = Positions;
 
 	Position getRowCol(size_t index) const;
 

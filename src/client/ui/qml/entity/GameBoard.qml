@@ -1,5 +1,6 @@
 import QtQuick 2.0;
 import Game 1.0;
+import GameController 1.0;
 
 GridView {
     id: root
@@ -7,6 +8,13 @@ GridView {
     model: GameBoardModel{
 
     }
+
+    GameController{
+        id: _gameController
+    }
+
+    property int internalSteps: 0
+
 
     cellHeight: height / root.model.dimension
     cellWidth: width / root.model.dimension
@@ -30,6 +38,8 @@ GridView {
                 anchors.fill: parent
                 onClicked: {
                     root.model.move(index)
+                    _gameController.nextStep()
+                    root.internalSteps = _gameController.stepCount
                 }
             }
         }

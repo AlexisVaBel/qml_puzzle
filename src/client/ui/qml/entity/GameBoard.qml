@@ -45,6 +45,21 @@ GridView {
         }
     }
 
+    populate: Transition {
+        NumberAnimation { properties: "x,y"; duration: 300}
+    }
+
+    move: Transition {
+        NumberAnimation { properties: "x,y"; duration: 400; easing.type: Easing.OutBounce }
+        NumberAnimation { properties: "opacity"; from : 0; to: 1.0; duration: 200 }
+    }
+
+
+    displaced: Transition {
+        NumberAnimation { properties: "x,y"; duration: 400; easing.type: Easing.OutBounce }
+        NumberAnimation { properties: "opacity"; from : 0; to: 1.0; duration: 200 }
+    }
+
 //    GameController_qml{
 //        id: _gameController
 //    }

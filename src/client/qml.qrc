@@ -4,5 +4,6 @@
         <file>ui/qml/entity/qmldir</file>
         <file>ui/qml/entity/Tile.qml</file>
         <file>ui/qml/entity/GameBoard.qml</file>
+        <file>images/kitbuttons/open.png</file>
     </qresource>
 </RCC>

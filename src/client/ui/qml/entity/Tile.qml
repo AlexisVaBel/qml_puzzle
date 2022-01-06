@@ -13,8 +13,8 @@ Rectangle {
     Text {
         id: valueText
         text: "1"
-        anchors.left: root.left
-        anchors.leftMargin: 30
+        anchors.centerIn:  root.Center
+
         font.bold: true
         font.pointSize: root.height * 0.33
     }

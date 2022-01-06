@@ -40,7 +40,14 @@ int main(int argc, char** argv) {
 	SPDLOG_INFO("initiated qml engine");
 	QQmlApplicationEngine engine;
 
-	engine.load(QUrl(QStringLiteral("qrc:/ui/qml/main.qml")));
+	const QUrl qmlUrl(QStringLiteral("qrc:/ui/qml/main.qml"));
+	engine.load(qmlUrl);
+
+	QObject::connect(&engine, &QQmlApplicationEngine::objectCreated, &app, [qmlUrl](QObject* object, const QUrl& objUrl) {
+		if (!object || qmlUrl == objUrl) {
+			QCoreApplication::exit(EXIT_FAILURE);
+		}
+	});
 
 	return app.exec();
 }
